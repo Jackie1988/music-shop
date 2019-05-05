@@ -25,7 +25,10 @@ class ProductDBConnectorImpl @Inject() ()(implicit appConfig: AppConfig) {
   val getProductsBaseURL: String = appConfig.baseUrl("get-products")
 
   override def getProducts(): Response =
-    http(GET(s"$getProductsBaseURL/get-products"))
+    //val result =
+      http(GET(s"$getProductsBaseURL/get-products"))
+    //Response(result.status, Headers.Empty, Option[Entity](result.))
+
 //    .recover {
 //      case e =>
 //        logger.warn(s"unexpected error from ProductDB during /get-products, message=${e.getMessage}")

@@ -1,6 +1,5 @@
 package config
 
-import configs.syntax._
 import com.google.inject.Singleton
 import javax.inject.Inject
 import play.api.Mode.Mode
@@ -9,6 +8,14 @@ import play.api.{Configuration, Environment}
 
 @Singleton
 class AppConfig @Inject() (override val runModeConfiguration: Configuration) {
+
+  protected lazy val rootServices = "microservice.services"
+  //protected lazy val services     = s"$env.microservice.services"
+
+  protected lazy val defaultProtocol: String =
+    runModeConfiguration
+      .getString(s"$rootServices.protocol")
+      .getOrElse("http")
 
   def baseUrl(serviceName: String) = {
     val protocol = getConfString(s"$serviceName.protocol", defaultProtocol)
@@ -21,11 +28,10 @@ class AppConfig @Inject() (override val runModeConfiguration: Configuration) {
   def getConfString(confKey: String, defString: => String) =
     runModeConfiguration
       .getString(s"$rootServices.$confKey")
-      .getOrElse(
-        runModeConfiguration
-          .getString(s"$services.$confKey")
-          .getOrElse(runModeConfiguration.getString(s"$playServices.$confKey").getOrElse(defString)))
 
+  def getConfInt(confKey: String, defInt: => Int) =
+    runModeConfiguration
+      .getInt(s"$rootServices.$confKey")
 }
 
 trait RunMode {

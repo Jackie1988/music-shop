@@ -2,6 +2,7 @@ package models
 
 import play.api.libs.json.{Format, JsValue, Json}
 
+// not my code
 case class ErrorResponse(errorMessageId: String, errorMessage: String, errorDetail: String)
 
 object ErrorResponse {

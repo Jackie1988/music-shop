@@ -11,4 +11,5 @@ import scala.concurrent.ExecutionContext
   def getProducts: Action[AnyContent] = Action { implicit request ⇒
     productDBConnector.getProducts
   }
+
 }
