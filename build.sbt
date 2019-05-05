@@ -15,3 +15,7 @@ libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "4.0.1
 
 // Adds additional packages into conf/routes
 // play.sbt.routes.RoutesKeys.routesImport += "com.example.binders._"
+
+resolvers += "Tim Tennant's repo" at "http://dl.bintray.com/timt/repo/"
+
+libraryDependencies += "io.shaka" %% "naive-http" % "104"
