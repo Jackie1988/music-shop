@@ -1,3 +1,5 @@
 # Routes
 
-GET      /get-products        controllers.MusicShopController.getProducts()
+#GET      /get-products        controllers.MusicShopController.getProducts()
+
+GET      /add-product         controllers.MusicShopController.addProduct()

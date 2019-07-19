@@ -1,4 +1,4 @@
-name := """music-shop"""
+name := "music-shop"
 organization := "com.example"
 
 version := "1.0-SNAPSHOT"
@@ -9,6 +9,11 @@ scalaVersion := "2.12.8"
 
 libraryDependencies += guice
 libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "4.0.1" % Test
+libraryDependencies ++= Seq(
+  //"org.mongodb" %% "casbah" % "2.6.0",
+  "org.slf4j" % "slf4j-simple" % "1.6.4",
+  "org.reactivemongo" %% "reactivemongo" % "0.18.1"
+)
 
 // Adds additional packages into Twirl
 //TwirlKeys.templateImports += "com.example.controllers._"

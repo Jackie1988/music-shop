@@ -7,7 +7,7 @@ import play.api._
 import play.api.{Configuration, Environment}
 
 @Singleton
-class AppConfig @Inject() (override val runModeConfiguration: Configuration) {
+class AppConfig @Inject() (val runModeConfiguration: Configuration) {
 
   protected lazy val rootServices = "microservice.services"
   //protected lazy val services     = s"$env.microservice.services"
